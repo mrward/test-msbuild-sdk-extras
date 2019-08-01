@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup Condition="$(TargetFramework.StartsWith('netstandard'))">
+    <DefineConstants>$(DefineConstants);NETSTANDARD;PORTABLE;TESTNETSTANDARD</DefineConstants>
+  </PropertyGroup>
+  <!-- These are not defined unless MonoAndroid is specified in lower case -->
+  <PropertyGroup Condition="$(TargetFramework.StartsWith('MonoAndroid'))">
+    <DefineConstants>$(DefineConstants);MONO;ANDROID;TESTANDROID</DefineConstants>
+  </PropertyGroup>
+</Project>

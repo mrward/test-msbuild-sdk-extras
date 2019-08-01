@@ -1,0 +1,20 @@
+<Project Sdk="MSBuild.Sdk.Extras">
+
+  <PropertyGroup>
+    <TargetFramework>MonoAndroid90</TargetFramework>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+  </PropertyGroup>
+
+ <ItemGroup>
+    <Compile Remove="Android\**\*.cs" />
+    <None Include="Android\**\*.cs" />
+  </ItemGroup>
+  
+   <!--
+    Need to use lowercase for target framework name.
+   -->
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
+    <None Remove="Android\**\*.cs" />
+    <Compile Include="Android\**\*.cs" />
+  </ItemGroup>
+</Project>
